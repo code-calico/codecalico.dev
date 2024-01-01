@@ -1,0 +1,35 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout {...frontmatter}>
+    <main>
+        <a href="/">Back to root</a>
+        <article>
+            <h1>{frontmatter.title}</h1>
+            <i class="pub">January 1st, 2024</i>
+            <slot />
+        </article>
+    </main>
+</Layout>
+
+<style>
+    .pub {
+        opacity: .5;
+    }
+
+    main {
+		margin: auto;
+		padding: 1em;
+		max-width: 1080px;
+		width: 90vw;
+		font-size: 20px;
+		line-height: 1.6;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin: 0;
+    }
+</style>

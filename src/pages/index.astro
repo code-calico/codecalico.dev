@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Member from '../components/Member.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const posts = await Astro.glob('../pages/blog/*.md');
+---
+
+<Layout title="Julie, Racks & Hazel">
+	<main>
+		<h1>Julie, Racks & Hazel</h1>
+		<p>Welcome to our website! We're a team of three hobbyist programmers, working together to craft something fun.</p>
+		<p>We plan to use this website as a blog for open development, as well as documentation for contributors.</p>
+
+		<h2>Latest Blog Posts</h2>
+		{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
+			<BlogPost url={post.url} {...post.frontmatter} />
+		)}
+
+		<h2>About us</h2>
+		<div class="about-us">
+			<Member
+				github="zoey-on-github"
+				name="Julie"
+			/>
+			<Member
+				github="rhaskia"
+				name="Racks"
+			/>
+			<Member
+				github="leafeling"
+				name="Hazel"
+			>
+				<p>
+					I've been developing small games since I was very young, and my first publically available
+					game was <a href="https://github.com/leafal-io/celesteia">Celesteia</a>, a 2D sandbox game.
+				</p>
+			</Member>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 1080px;
+		width: 90vw;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+
+	h1 {
+		font-size: 3em;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-weight: 700;
+		line-height: 1.5;
+		text-align: center;
+		margin-top: 1em;
+	}
+
+	.about-us {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: center;
+		gap: 1em;
+		flex-wrap: wrap;
+	}
+</style>

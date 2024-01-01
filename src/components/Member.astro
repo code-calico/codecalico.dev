@@ -1,0 +1,61 @@
+---
+interface Props {
+	github: string;
+	name: string;
+}
+
+const { github, name } = Astro.props;
+---
+
+<div class="member-card">
+	<div class="avatar">
+		<img src=`https://github.com/${github}.png?size=200` />
+	</div>
+	<div class="info">
+		<h2>
+			<a href={`https://github.com/${github}`} target="_blank">{name} ({github})</a>
+		</h2>
+		<slot>
+			<p>Something awesome about {name}!</p>
+		</slot>
+	</div>
+</div>
+<style>
+	.member-card {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		border-radius: 7px;
+		border: 1px solid #fff3;
+		background-color: #aaa1;
+		padding: 1em;
+		gap: 2em;
+		flex: 1;
+		min-width: 300px;
+	}
+
+	.member-card .avatar {
+		border-radius: 50%;
+		overflow: hidden;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: fit-content;
+	}
+
+	.member-card .avatar img {
+		width: 150px;
+		height: 150px;
+		object-fit: cover;
+	}
+
+	.member-card .info {
+		width: 100%;
+	}
+
+	.member-card .info h2 {
+		margin: 0;
+		font-size: 1.25em;
+	}
+</style>

@@ -1,0 +1,42 @@
+---
+interface Props {
+	url: string;
+	title: string;
+	description: string;
+}
+
+const { url, title, description } = Astro.props;
+---
+
+<div class="blog-post-card">
+	<div class="info">
+		<a href={url}>
+			<h2>{title}</h2>
+		</a>
+		<p>{description}</p>
+	</div>
+</div>
+
+<style>
+	.blog-post-card {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		border-radius: 7px;
+		border: 1px solid #fff3;
+		background-color: #aaa1;
+		padding: 1em;
+		gap: 1em;
+		flex: 1;
+		min-width: 300px;
+	}
+
+	.blog-post-card .info h2 {
+		margin: 0;
+		font-size: 1.5em;
+	}
+
+	.blog-post-card .info p {
+		margin: 0;
+	}
+</style>
