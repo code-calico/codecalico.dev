@@ -1,10 +1,11 @@
 ---
 interface Props {
-	github: string;
-	name: string;
+	github?: string;
+	name?: string;
+	content?: string;
 }
 
-const { github, name } = Astro.props;
+const { github, name, content } = Astro.props;
 ---
 
 <div class="member-card">
@@ -15,9 +16,7 @@ const { github, name } = Astro.props;
 		<h2>
 			<a href={`https://github.com/${github}`} target="_blank">{name} ({github})</a>
 		</h2>
-		<slot>
-			<p>Something awesome about {name}!</p>
-		</slot>
+		<slot set:html={content}></slot>
 	</div>
 </div>
 <style>

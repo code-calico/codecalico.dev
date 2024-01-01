@@ -4,6 +4,7 @@ import Member from '../components/Member.astro';
 import BlogPost from '../components/BlogPost.astro';
 
 const posts = await Astro.glob('../pages/blog/*.md');
+const members = await Astro.glob('../pages/members/*.md');
 ---
 
 <Layout title="Julie, Racks & Hazel">
@@ -19,23 +20,9 @@ const posts = await Astro.glob('../pages/blog/*.md');
 
 		<h2>About us</h2>
 		<div class="about-us">
-			<Member
-				github="zoey-on-github"
-				name="Julie"
-			/>
-			<Member
-				github="rhaskia"
-				name="Racks"
-			/>
-			<Member
-				github="leafeling"
-				name="Hazel"
-			>
-				<p>
-					I've been developing small games since I was very young, and my first publically available
-					game was <a href="https://github.com/leafal-io/celesteia">Celesteia</a>, a 2D sandbox game.
-				</p>
-			</Member>
+			{members.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? 1 : -1).map((member) =>
+				<Member {...member.frontmatter} content={member.compiledContent()} />
+			)}
 		</div>
 	</main>
 </Layout>
