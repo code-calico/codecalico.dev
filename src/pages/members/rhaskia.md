@@ -2,4 +2,4 @@
 name: 'Racks'
 github: rhaskia
 ---
-Something awesome about Racks!
+big fan of games and making them! especially ones that are 2D or where you can build stuff ‼️
