@@ -8,7 +8,11 @@ const { frontmatter } = Astro.props;
         <a href="/">Back to root</a>
         <article>
             <h1>{frontmatter.title}</h1>
-            <i class="pub">January 1st, 2024</i>
+            <i class="pub">{new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })}</i>
             <slot />
         </article>
     </main>
