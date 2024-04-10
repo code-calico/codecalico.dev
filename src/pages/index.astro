@@ -2,28 +2,29 @@
 import Layout from '../layouts/Layout.astro';
 import Member from '../components/Member.astro';
 import BlogPost from '../components/BlogPost.astro';
+import Logo from '../components/Logo.astro';
 
 const posts = await Astro.glob('../pages/blog/*.md');
 const members = await Astro.glob('../pages/members/*.md');
 ---
 
-<Layout title="Julie, Racks & Hazel">
+<Layout title="Code Calico">
+	<Logo />
 	<main>
-		<h1>Julie, Racks & Hazel</h1>
-		<p>Welcome to our website! We're a team of three hobbyist programmers, working together to craft something fun.</p>
+		<p>Welcome to our website! We're a team of hobbyist programmers, working together to craft something fun.</p>
 		<p>We plan to use this website as a blog for open development, as well as documentation for contributors.</p>
 
-		<h2>Latest Blog Posts</h2>
-		{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
-			<BlogPost url={post.url} {...post.frontmatter} />
-		)}
-
-		<h2>About us</h2>
-		<div class="about-us">
+		<h2>Who are we?</h2>
+		<div class="members">
 			{members.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? 1 : -1).map((member) =>
 				<Member {...member.frontmatter} content={member.compiledContent()} />
 			)}
 		</div>
+
+		<h2>What are we up to?</h2>
+		{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
+			<BlogPost url={post.url} {...post.frontmatter} />
+		)}
 	</main>
 </Layout>
 
@@ -50,12 +51,12 @@ const members = await Astro.glob('../pages/members/*.md');
 		font-weight: 700;
 		line-height: 1.5;
 		text-align: center;
-		margin-top: 1em;
+		margin-top: .5em;
 	}
 
-	.about-us {
+	.members {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: stretch;
 		justify-content: center;
 		gap: 1em;
