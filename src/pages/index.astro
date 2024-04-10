@@ -11,10 +11,10 @@ const members = await Astro.glob('../pages/members/*.md');
 <Layout title="Code Calico">
 	<Logo />
 	<main>
-		<p>Welcome to our website! We're a team of hobbyist programmers, working together to craft something fun.</p>
-		<p>We plan to use this website as a blog for open development, as well as documentation for contributors.</p>
-
 		<h2>Who are we?</h2>
+
+		<p>Welcome to our website! We're a team of hobbyist programmers, working together to craft something fun.</p>
+
 		<div class="members">
 			{members.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? 1 : -1).map((member) =>
 				<Member {...member.frontmatter} content={member.compiledContent()} />
