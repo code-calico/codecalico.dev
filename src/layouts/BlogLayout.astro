@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props;
 
 <Layout {...frontmatter}>
     <main>
-        <a href="/">Back to root</a>
+        <a href="/"><span class="highlight">Back to root</span></a>
         <article>
             <h1>{frontmatter.title}</h1>
             <i class="pub">{new Date(frontmatter.pubDate).toLocaleDateString("en-US", {

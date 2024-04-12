@@ -12,7 +12,7 @@ const { title, description } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="data:," />
+		<link rel="icon" type="image/png" href="/codecalico-transparent.png" />
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{title}</title>
@@ -24,16 +24,21 @@ const { title, description } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--background: #131a14;
-		--text: #ffff;
-		--text-dark: #fff9
+		--background: #242325;
+		--text: #c8c8c8ff;
+		--text-dark: #c8c8c899;
+		--node-border: #fff3;
+		--node-background: #aaa1;
+		--accent: #dc965aff;
 	}
+
 	html {
 		font-family: system-ui, sans-serif;
 
 		background: var(--background);
 		color: var(--text);
 	}
+
 	code {
 		font-family:
 			Menlo,
@@ -46,13 +51,20 @@ const { title, description } = Astro.props;
 			monospace;
 	}
 
+	h1, h2 {
+		color: var(--accent);
+	}
+
 	a {
 		text-decoration: none;
-		color: var(--text-dark);
+		color: var(--text);
+	}
+
+	a, a .highlight {
 		transition: .2s ease;
 	}
 
-	a:hover {
-		color: var(--text);
+	a:hover .highlight {
+		color: var(--accent);
 	}
 </style>

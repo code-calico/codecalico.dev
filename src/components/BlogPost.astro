@@ -8,14 +8,12 @@ interface Props {
 const { url, title, description } = Astro.props;
 ---
 
-<div class="blog-post-card">
+<a href={url} class="blog-post-card">
 	<div class="info">
-		<a href={url}>
-			<h2>{title}</h2>
-		</a>
+		<span class="highlight">{title}</span>
 		<p>{description}</p>
 	</div>
-</div>
+</a>
 
 <style>
 	.blog-post-card {
@@ -23,17 +21,18 @@ const { url, title, description } = Astro.props;
 		flex-direction: row;
 		align-items: center;
 		border-radius: 7px;
-		border: 1px solid #fff3;
-		background-color: #aaa1;
+		border: 1px solid var(--node-border);
+		background-color: var(--node-background);
 		padding: 1em;
 		gap: 1em;
 		flex: 1;
 		min-width: 300px;
 	}
 
-	.blog-post-card .info h2 {
+	.blog-post-card .info span {
 		margin: 0;
 		font-size: 1.5em;
+		font-weight: bold;
 	}
 
 	.blog-post-card .info p {
