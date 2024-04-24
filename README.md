@@ -1,3 +1,5 @@
+# Code Calico
+
 This repository hosts the GitHub page for our team! We plan to use it as a blog for open development.
 
 ## Contributor's Guide
