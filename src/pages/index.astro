@@ -20,7 +20,7 @@ const members = await Astro.glob('../pages/members/*.md');
 			<BlogPost url={post.url} {...post.frontmatter} />
 		)}
 
-		<h2>Who are we?
+		<h2>Who are we?</h2>
 		<div class="members">
 			{members.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? 1 : -1).map((member) =>
 				<Member {...member.frontmatter} content={member.compiledContent()} />
