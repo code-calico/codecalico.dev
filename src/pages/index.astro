@@ -16,9 +16,11 @@ const members = await Astro.glob('../pages/members/*.md');
 		<p>Welcome to our website! We're a team of hobbyist programmers, working together to craft something fun.</p>
 
 		<h2>What are we up to?</h2>
-		{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
-			<BlogPost url={post.url} {...post.frontmatter} />
-		)}
+		<div class="posts">
+			{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
+				<BlogPost url={post.url} {...post.frontmatter} />
+			)}
+		</div>
 
 		<h2>Who are we?</h2>
 		<div class="members">
@@ -61,5 +63,11 @@ const members = await Astro.glob('../pages/members/*.md');
 		justify-content: center;
 		gap: 1em;
 		flex-wrap: wrap;
+	}
+
+	.posts {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
 	}
 </style>
