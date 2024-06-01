@@ -8,11 +8,13 @@ const { frontmatter } = Astro.props;
         <a href="/"><span class="highlight">Back to root</span></a>
         <article>
             <h1>{frontmatter.title}</h1>
-            <i class="pub">{new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            })}</i>
+	    <i class="pub">
+		{new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                	year: 'numeric',
+	                month: 'long',
+        	        day: 'numeric'
+			})}, by {frontmatter.author}
+	    </i>
             <slot />
         </article>
     </main>
