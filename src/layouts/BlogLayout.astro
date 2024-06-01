@@ -13,7 +13,7 @@ const { frontmatter } = Astro.props;
                 	year: 'numeric',
 	                month: 'long',
         	        day: 'numeric'
-			})}, by {frontmatter.author}
+			})}, by {frontmatter.author.join(", ")}
 	    </i>
             <slot />
         </article>
