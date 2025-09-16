@@ -5,16 +5,16 @@ interface Props {
 	content?: string;
 }
 
-const { github, name } = Astro.props;
+const { name, image, url } = Astro.props;
 ---
 
-<a href={`https://github.com/${github}`} class="member-card">
+<a href={`${url}`} class="member-card">
 	<div class="avatar">
-		<img src=`https://github.com/${github}.png?size=200` />
+    <img src=`${image}` />
 	</div>
 	<div class="info">
 		<span class="name">
-			<span class="highlight">{name}</span> ({github})
+			<span class="highlight">{name}</span>
 		</span>
 	</div>
 </a>

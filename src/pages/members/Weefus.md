@@ -1,4 +1,0 @@
----
-name: 'Weefus'
-github: Weefus
----
