@@ -4,8 +4,8 @@ import Member from '../components/Member.astro';
 import BlogPost from '../components/BlogPost.astro';
 import Logo from '../components/Logo.astro';
 
-const posts = await Astro.glob('../pages/blog/*.md');
-const members = await Astro.glob('../pages/members/*.md');
+const posts = Object.values(import.meta.glob('../pages/blog/*.md', {eager: true}));
+const members = Object.values(import.meta.glob('../pages/members/*.md', {eager: true}));
 ---
 
 <Layout title="Code Calico">
@@ -15,12 +15,14 @@ const members = await Astro.glob('../pages/members/*.md');
 
 		<p>Welcome to our website! We're a team of hobbyist programmers, working together to craft something fun.</p>
 
-		<h2>What are we up to?</h2>
-		<div class="posts">
-			{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
-				<BlogPost url={post.url} {...post.frontmatter} />
-			)}
-		</div>
+    {posts.length > 0 && (
+		  <h2>What are we up to?</h2>
+		  <div class="posts">
+		  	{posts.sort((a, b) => a.frontmatter.pubDate > b.frontmatter.pubDate ? -1 : 1).slice(0, 3).map((post) =>
+		  		<BlogPost url={post.url} {...post.frontmatter} />
+		  	)}
+		  </div>
+    )}
 
 		<h2>Who are we?</h2>
 		<div class="members">

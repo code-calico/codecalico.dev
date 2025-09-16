@@ -1,0 +1,14 @@
+---
+- name: Copy to var-www on hosts
+  hosts: web
+  gather_facts: false
+  tasks:
+    - ansible.posix.synchronize:
+        src: dist/
+        dest: /var/www/html/codecalico.dev
+
+        delete: true
+        group: false
+        perms: false
+        rsync_timeout: 10
+        times: false
