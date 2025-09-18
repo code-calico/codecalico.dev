@@ -1,6 +1,6 @@
 ---
 name: 'Julie'
-url: https://github.com/zoey-on-github
+url: https://zoey-on-github.github.io/
 image: https://github.com/zoey-on-github.png?size=200
 ---
 she/they.

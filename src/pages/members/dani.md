@@ -1,5 +1,5 @@
 ---
 name: 'Dani'
-url: https://github.com/DvRossen
+url: https://dvrossen.nl/
 image: https://github.com/DvRossen.png?size=200
 ---
