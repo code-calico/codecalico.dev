@@ -8,7 +8,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -17,6 +17,14 @@ const { title, description } = Astro.props;
 
 		<title>{title}</title>
 		<meta name="description" content={description ?? ""} />
+
+    <meta name="theme-color" content="#dc965aff" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title ?? ""}/ >
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:description" content={description ?? ""} />
+    <meta property="og:image" content="https://codecalico.dev/codecalico-transparent.png" />
 	</head>
 	<body>
 		<slot />
