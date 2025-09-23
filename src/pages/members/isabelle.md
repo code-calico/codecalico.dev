@@ -1,5 +1,5 @@
 ---
 name: 'Isabelle'
-url: https://github.com/nik0-dev
-image: https://github.com/nik0-dev.png?size=200
+url: https://github.com/cr1ttr
+image: https://github.com/cr1ttr.png?size=200
 ---
